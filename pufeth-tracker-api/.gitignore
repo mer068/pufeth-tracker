@@ -1,0 +1,12 @@
+# Node modules
+/node_modules/
+
+# TypeScript build output (dist folder)
+/dist/
+
+# Environment files
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
