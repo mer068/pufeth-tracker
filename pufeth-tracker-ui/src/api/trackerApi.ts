@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ConversionRate } from "../types/conversionRate";
 
-const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+const apiBaseUrl = `${process.env.REACT_APP_API_BASE_URL}/api`;
 
 export const fetchConversionRates = async (): Promise<ConversionRate[]> => {
     try {
