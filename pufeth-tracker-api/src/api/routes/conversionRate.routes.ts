@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { getRates } from "../controllers/conversionRate.controller";
+import { getRecentRates } from "../controllers/conversionRate.controller";
 
 const conversionRateRouter = Router();
 
-conversionRateRouter.get('/', getRates);
+conversionRateRouter.get('/latest', getRecentRates);
 
 export default conversionRateRouter;

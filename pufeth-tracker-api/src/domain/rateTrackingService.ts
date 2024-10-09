@@ -7,9 +7,9 @@ export const calculateConversionRate = (totalAssets: Big, totalSupply: Big): num
     return Number(totalAssets.div(totalSupply));
 };
 
-export const addConversionRate = async (rate: number, createdAt: Date): Promise<void> => {
+export const addConversionRate = async (rate: number, createdAtUtc: string): Promise<void> => {
     try {
-        await pool.query(SAVE_CONVERSION_RATE, [rate, createdAt]);
+        await pool.query(SAVE_CONVERSION_RATE, [rate, createdAtUtc]);
     } catch (error) {
         logger.error('Error adding conversion rate:', error);
         throw error;

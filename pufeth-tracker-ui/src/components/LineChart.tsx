@@ -4,11 +4,16 @@ import { ApexOptions } from 'apexcharts';
 
 interface LineChartProps {
     data: number[];
-    labels: string[];
-    label: string;
+    dataLabels: string[];
+    chartLabels: {
+        title: string,
+        name: string,
+        xaxis: string,
+        yaxis: string,
+    }
 }
 
-const LineChart: React.FC<LineChartProps> = ({ data, labels, label }) => {
+const LineChart: React.FC<LineChartProps> = ({ data, dataLabels, chartLabels }) => {
 
     // Adjust the range of y-axis based on data
     const minYValue = Math.min(...data) - 0.01;
@@ -26,20 +31,20 @@ const LineChart: React.FC<LineChartProps> = ({ data, labels, label }) => {
             },
         },
         xaxis: {
-            categories: labels,
+            categories: dataLabels,
             labels: {
                 show: false,
             }
         },
         yaxis: {
             title: {
-                text: 'Conversion Rate',
+                text: chartLabels.yaxis,
             },
             min: minYValue,
             max: maxYValue,
         },
         title: {
-            text: 'Conversion Rate Over Time',
+            text: chartLabels.title,
             align: 'center',
         },
         stroke: {
@@ -53,7 +58,7 @@ const LineChart: React.FC<LineChartProps> = ({ data, labels, label }) => {
 
     const chartSeries = [
         {
-            name: label,
+            name: chartLabels.name,
             data,
         },
     ];

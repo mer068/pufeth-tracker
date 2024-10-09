@@ -1,7 +1,19 @@
-export const GET_CONVERSION_RATES = `
+export const GET_RECENT_CONVERSION_RATES = `
+    SELECT *
+    FROM (
+             SELECT *
+             FROM conversion_rate
+             ORDER BY datetime_utc DESC
+                 LIMIT 60
+         ) AS latest_rates
+    ORDER BY datetime_utc ASC;
+`;
+
+export const GET_MORE_RECENT_THAN_CONVERSION_RATES = `
     SELECT *
     FROM conversion_rate
-    ORDER BY datetime_utc DESC;
+    WHERE datetime_utc > $1
+    ORDER BY datetime_utc ASC;
 `;
 
 export const SAVE_CONVERSION_RATE = `

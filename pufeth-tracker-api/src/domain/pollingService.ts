@@ -17,7 +17,7 @@ export const startPolling = () => {
             if (totalSupply && totalAssets) {
                 const conversionRate = calculateConversionRate(totalAssets, totalSupply);
 
-                await addConversionRate(conversionRate, new Date());
+                await addConversionRate(conversionRate, new Date().toISOString());
             }
         } catch (error) {
             logger.error('Error while polling conversion rates:', error);

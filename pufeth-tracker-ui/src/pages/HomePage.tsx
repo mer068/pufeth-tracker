@@ -1,5 +1,5 @@
 import React from 'react';
-import ConversionRateListComponent from "../components/ConversionRateChart";
+import ConversionRateListComponent from "../components/RecentConversionRatesChart";
 
 const HomePage: React.FC = () => {
     return (
