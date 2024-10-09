@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "pufETH Tracker",
+  "name": "pufETH Conversion Rate Tracker",
   "icons": [
     {
       "src": "favicon.ico",
