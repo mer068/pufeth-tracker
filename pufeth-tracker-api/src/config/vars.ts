@@ -11,7 +11,9 @@ const vars = {
     dbName: process.env.DB_NAME,
     dbPort: process.env.DB_PORT,
     corsAllowedOrigins: process.env.CORS_ALLOWED_ORIGINS,
-
+    infuraUrl: process.env.INFURA_URL,
+    contractAddress: process.env.CONTRACT_ADDRESS,
+    pollingInterval: process.env.POLLING_INTERVAL,
 };
 
 export default vars;
