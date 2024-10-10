@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const vars = {
+    nodeEnv: process.env.NODE_ENV,
     port: process.env.PORT,
     host: process.env.HOST,
     dbHost: process.env.DB_HOST,

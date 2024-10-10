@@ -13,7 +13,10 @@ const RecentConversionRatesChart: React.FC = () => {
 
             setConversionRates((prevRates) => {
                 const maxDataPoints = 120;
-                const updatedRates = [...prevRates, ...newRates].slice(-maxDataPoints);
+                const updatedRates = [
+                    ...prevRates,
+                    ...newRates.filter(newRate => !prevRates.some(prevRate => prevRate.datetime_utc === newRate.datetime_utc))
+                ].slice(-maxDataPoints);
                 return updatedRates;
             });
 

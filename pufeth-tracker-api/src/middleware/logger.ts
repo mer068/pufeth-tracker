@@ -1,4 +1,5 @@
 import winston, { format, transports } from 'winston';
+import vars from "../config/vars";
 
 const logFormat = format.printf(({timestamp, level, message, stack}) => {
     return `${timestamp} [${level.toUpperCase()}]: ${stack || message}`;
@@ -18,7 +19,7 @@ const logger = winston.createLogger({
     ],
 });
 
-if (process.env.NODE_ENV === 'production') {
+if (vars.nodeEnv === 'production') {
     logger.remove(new transports.Console());
 }
 
