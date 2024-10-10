@@ -15,6 +15,7 @@ const vars = {
     infuraUrl: process.env.INFURA_URL,
     contractAddress: process.env.CONTRACT_ADDRESS,
     pollingInterval: process.env.POLLING_INTERVAL,
+    mockServices: process.env.MOCK_SERVICES
 };
 
 export default vars;

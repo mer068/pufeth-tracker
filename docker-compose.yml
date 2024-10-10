@@ -9,11 +9,17 @@ services:
       - "8000:8000"
     environment:
       - NODE_ENV=dev
+      - PORT=8000
+      - HOST=localhost
       - DB_HOST=db
       - DB_PORT=5432
       - DB_USER=postgres
       - DB_PASSWORD=postgres
       - DB_NAME=pufeth_tracker_db
+      - CORS_ALLOWED_ORIGINS=http://localhost:3000
+      - MOCK_SERVICES=true
+      - INFURA_URL=https://mainnet.infura.io/v3/a0000000000000000000000000000000
+      - CONTRACT_ADDRESS=0xd9a442856c234a39a81a089c06451ebaa4306a72
     depends_on:
       db:
         condition: service_healthy
@@ -21,12 +27,12 @@ services:
     build:
       context: ./pufeth-tracker-ui
       dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://localhost:8000
     ports:
       - "3000:80"
     depends_on:
       - backend
-    environment:
-      - REACT_APP_API_BASE_URL=http://backend:8000
   db:
     image: postgres
     environment:

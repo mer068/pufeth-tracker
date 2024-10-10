@@ -5,10 +5,10 @@ import { IContractService } from "./IContractService";
 
 export class ContractServiceFactory {
     static getService(): IContractService {
-        if (vars.nodeEnv === 'production') {
-            return new ContractService();
-        } else {
+        if (vars.mockServices == 'true') {
             return new MockContractService();
+        } else {
+            return new ContractService();
         }
     }
 }

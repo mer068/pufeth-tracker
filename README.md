@@ -20,12 +20,18 @@ The project is fully containerized and can be run using Docker. To start the app
    ```bash
    docker-compose up
    
-This will start the PostgreSQL database, Node backend, and React frontend.
+This will start the PostgreSQL database, Node backend, and React frontend. Afterwards app will be accesible at:
+```plaintext
+   http://localhost:3000/
+```
 
 ## Development Profile
 
 By default, the project will run in the dev profile. In this mode:
 - The database will be seeded with mock data for the last 3 days.
 - The fetching of conversion rates will be mocked.
-- This can be changed by switching to production profile.
-
+- This can be changed by changing environment variables in docker-compose file:
+```plaintext
+   MOCK_SERVICES=false
+   INFURA_URL={working url}
+```
