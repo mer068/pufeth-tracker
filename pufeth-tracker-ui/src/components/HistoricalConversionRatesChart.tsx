@@ -29,7 +29,7 @@ const HistoricalConversionRatesChart: React.FC = () => {
     const dataLabels = useMemo(() => conversionRates.map(rate => new Date(rate.datetime_utc).toLocaleString()), [conversionRates]);
     const data = useMemo(() => conversionRates.map(rate => rate.rate), [conversionRates]);
     const chartLabels = {
-        title: 'Conversion Rates Over Time',
+        title: 'Conversion Rates In Specific Range',
         name: 'Conversion Rate',
         xaxis: 'Time',
         yaxis: 'Conversion Rate'
