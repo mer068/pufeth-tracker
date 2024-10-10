@@ -1,10 +1,12 @@
 import React from 'react';
-import ConversionRateListComponent from "../components/RecentConversionRatesChart";
+import RecentConversionRatesChart from "../components/RecentConversionRatesChart";
+import HistoricalConversionRatesChart from "../components/HistoricalConversionRatesChart";
 
 const HomePage: React.FC = () => {
     return (
         <div className="HomePage">
-            <ConversionRateListComponent/>
+            <RecentConversionRatesChart/>
+            <HistoricalConversionRatesChart/>
         </div>
     );
 };

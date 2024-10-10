@@ -32,6 +32,9 @@ const LineChart: React.FC<LineChartProps> = ({ data, dataLabels, chartLabels }) 
         },
         xaxis: {
             categories: dataLabels,
+            title: {
+                text: chartLabels.xaxis,
+            },
             labels: {
                 show: false,
             }

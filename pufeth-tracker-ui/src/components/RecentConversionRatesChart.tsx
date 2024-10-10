@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { fetchRecentConversionRates } from '../api/trackerApi';
+import { fetchRecentConversionRates } from '../api/ratesApi';
 import LineChart from './LineChart';
 import { ConversionRate } from '../types/conversionRate';
 
@@ -44,13 +44,15 @@ const RecentConversionRatesChart: React.FC = () => {
     const dataLabels = useMemo(() => conversionRates.map(rate => new Date(rate.datetime_utc).toLocaleString()), [conversionRates]);
     const data = useMemo(() => conversionRates.map(rate => rate.rate), [conversionRates]);
     const chartLabels = {
-        title: 'Conversion Rate Over Time',
+        title: 'Latest Conversion Rates',
         name: 'Conversion Rate',
-        xaxis: '',
+        xaxis: 'Time',
         yaxis: 'Conversion Rate'
     };
     return (
-        <LineChart data={data} dataLabels={dataLabels} chartLabels={chartLabels}/>
+        <div className="card">
+            <LineChart data={data} dataLabels={dataLabels} chartLabels={chartLabels}/>
+        </div>
     );
 };
 
